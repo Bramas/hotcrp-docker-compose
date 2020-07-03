@@ -1,0 +1,19 @@
+defaults
+tls on
+tls_starttls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile        /var/log/msmtp.log
+
+
+account default
+
+port 587
+auth on
+tls on
+
+# usually, you just have to change the following values:
+from DEFAULT_FROM_EMAIL
+host YOUR_SMTP_HOST
+user YOUR_SMTP_USER
+password YOUR_SMTP_PASSWORD
+
