@@ -10,8 +10,8 @@
   ```
     git clone https://github.com/kohler/hotcrp app
   ```
-3. Edit the `.env` as you wish
-4. Edit the file `docker/php/msmtprc` to set up the SMTP connection (host, user and password).
+3. Rename `.env.default` to `.env` and edit the file as you wish
+4. Rename `docker/php/msmtprc.default` to `docker/php/msmtprc` and edit the file to set up the SMTP connection (host, user and password). 
 5. start docker-compose
   ```
   docker-compose up -d
