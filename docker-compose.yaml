@@ -14,10 +14,10 @@ services:
             - ./docker/php/php.conf:/usr/local/etc/php/conf.d/custom.ini:ro
             - ./logs/php:/var/log
         environment:
-            MYSQL_USER: ${MYSQL_USER}
-            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-            MYSQL_DATABASE: ${MYSQL_DATABASE}
-            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_USER: hotcrp
+            MYSQL_PASSWORD: hotcrppwd
+            MYSQL_DATABASE: hotcrp
+            MYSQL_ROOT_PASSWORD: root
             HOTCRP_PAPER_SITE: ${HOTCRP_PAPER_SITE}
             HOTCRP_CONTACT_NAME: ${HOTCRP_CONTACT_NAME}
             HOTCRP_EMAIL_CONTACT: ${HOTCRP_EMAIL_CONTACT}
@@ -45,8 +45,8 @@ services:
         depends_on:
             - php
         environment:
-            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-            MYSQL_DATABASE: ${MYSQL_DATABASE}
-            MYSQL_USER: ${MYSQL_USER}
-            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+            MYSQL_USER: hotcrp
+            MYSQL_PASSWORD: hotcrppwd
+            MYSQL_DATABASE: hotcrp
+            MYSQL_ROOT_PASSWORD: root
 
