@@ -88,7 +88,7 @@ $Opt["contactEmail"] = $_ENV["HOTCRP_EMAIL_CONTACT"];
 $Opt["sendEmail"] = true;
 $Opt["emailFrom"] = $_ENV["HOTCRP_EMAIL_FROM"];
 $Opt["emailSender"] = empty($_ENV["SENDER_ENVELOPE_ADDRESS"]) ? $_ENV["HOTCRP_EMAIL_FROM"] : $_ENV["SENDER_ENVELOPE_ADDRESS"];
-$Opt["internalMailer"] = false;
+$Opt["internalMailer"] = true;
 
 // -------------------------------------------------------------------------
 // OTHER CONFIGURATION OPTIONS
