@@ -10,21 +10,20 @@
   ```
     git clone https://github.com/kohler/hotcrp app
   ```
-3. Rename `.env.default` to `.env` and edit the file as you wish
-4. Rename `docker/php/msmtprc.default` to `docker/php/msmtprc` and edit the file to set up the SMTP connection (host, user and password). 
-5. start docker-compose
+3. Rename `.env.default` to `.env` and edit the file as you wish (in particular set up the SMTP connection information: host, user and password)
+4. start docker-compose
   ```
   docker-compose up -d
   ```
-6. Initialize the database
+5. Initialize the database (or use a backup)
   ```
   docker-compose exec mysql  /bin/sh -c "echo 'ok\nhotcrp\nhotcrppwd\nn\nY\n' | sh /srv/www/api/lib/createdb.sh --user=root --password=root"
   ```
-7. copy the default hotcrp configuration
+6. copy the default hotcrp configuration
   ```
   mv hotcrp-options.php app/conf/options.php
   ```
-8. open `localhost:9001`
+7. open `localhost:9001`
 
 
 ## Backups and Restore
