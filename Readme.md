@@ -26,6 +26,15 @@
 7. open `localhost:9001`
 
 
+## More options
+
+* If you want to print the deadline in another timezone (default is HST), edit `docker/php/php.conf` (need to restart) (list of php timezones: https://www.php.net/manual/en/timezones.php)
+* To change the port, you can edit `docker-compose.yaml` (need to restart)
+* You can change more options in the hotcrp config file: `app/conf/options.php` (no need to restart)
+* You can change or add custom php.ini options in `docker/php/php.conf` (need to restart)
+* You can change or add custom nginx options in `docker/nginx/default.conf` (need to restart)
+
+
 ## Backups and Restore
 
 Perform a backup:
@@ -49,12 +58,6 @@ then run the following when you want to do a backup:
 sh s3-backup.sh
 ```
 
-## More options
-
-* To change the port, you can edit `docker-compose.yaml`
-* you can change more options in the hotcrp config file: `app/conf/options.php`
-* you can change or add custom php.ini options in `docker/php/php.conf`
-* you can change or add custom nginx options in `docker/nginx/default.conf`
 
 
 ## Update Hotcrp
