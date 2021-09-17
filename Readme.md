@@ -39,12 +39,12 @@
 
 Perform a backup:
 ```
-docker-compose exec -T mysql mysqldump -uroot -proot hotcrp > backup.sql
+docker-compose exec -T mysql mysqldump -uhotcrp -photcrppwd hotcrp > backup.sql
 ```
 
 To restore:
 ```
-docker-compose exec -T mysql mysql -uroot -proot hotcrp < backup.sql
+docker-compose exec -T mysql mysql -uhotcrp -photcrppwd hotcrp < backup.sql
 ```
 
 ### Backup to S3
