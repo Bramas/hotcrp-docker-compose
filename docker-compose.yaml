@@ -6,35 +6,42 @@ services:
     # in a web interface what are the sent mail, uncomment this
     # and comment the other smtp container.
     # The web interface is accessible at localhost:9002
-    #smtp:
-    #    image: mailhog/mailhog:v1.0.1
-    #    restart: always
-    #    expose:
-    #        - "25"
-    #    environment:
-    #        MH_SMTP_BIND_ADDR: 0.0.0.0:25
-    #    ports:
-    #        - 9002:8025
+    # smtp:
+    #     image: mailhog/mailhog:v1.0.1
+    #     restart: always
+    #     expose:
+    #         - "25"
+    #     environment:
+    #         MH_SMTP_BIND_ADDR: 0.0.0.0:25
+    #     ports:
+    #         - 9002:8025
 
     smtp:
-        build:
-            context: ./docker/smtp
-        restart: always
-        expose:
-            - "25"
-        volumes:
-            - ./mail-spool:/var/spool/postfix
-            # you can store mail log in a volume 
-            # (but create the file locally before startup)
-            #- ./logs/smtp/maillog:/var/log/maillog
-        environment:
-            SMTP_SERVER: ${SMTP_SERVER}
-            SMTP_PORT: ${SMTP_PORT}
-            SMTP_USERNAME: ${SMTP_USERNAME}
-            SMTP_PASSWORD:  ${SMTP_PASSWORD}
-            SERVER_HOSTNAME: ${SERVER_HOSTNAME}
-            DESTINATION_CONCURRENCY_LIMIT: "1"
-            DESTINATION_RATE_DELAY: "1s"
+      image: bytemark/smtp
+      expose:
+        - "25"
+      environment:
+        MAILNAME: ${SERVER_HOSTNAME}
+    
+    # smtp:
+    #     build:
+    #         context: ./docker/smtp
+    #     restart: always
+    #     expose:
+    #         - "25"
+    #     volumes:
+    #         - ./mail-spool:/var/spool/postfix
+    #         # you can store mail log in a volume 
+    #         # (but create the file locally before startup)
+    #         #- ./logs/smtp/maillog:/var/log/maillog
+    #     environment:
+    #         SMTP_SERVER: ${SMTP_SERVER}
+    #         SMTP_PORT: ${SMTP_PORT}
+    #         SMTP_USERNAME: ${SMTP_USERNAME}
+    #         SMTP_PASSWORD:  ${SMTP_PASSWORD}
+    #         SERVER_HOSTNAME: ${SERVER_HOSTNAME}
+    #         DESTINATION_CONCURRENCY_LIMIT: "1"
+    #         DESTINATION_RATE_DELAY: "1s"
 
 
     php:
